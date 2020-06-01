@@ -1,0 +1,152 @@
+/*Referência ao raíz do documento informando que determinada variável pode ser
+utilizada para definir atributos aos elementos que possam surgir eventualmente*/
+:root {
+  --title-color: #322153;
+  --primary-color: #34cb69; 
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  font-family: 'Roboto', sans-serif;
+}
+
+body{
+  background: #f0f0f5;
+  -webkit-font-smoothig: antialiased;
+}
+
+a{
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: 'Ubuntu', sans-serif;
+  color: var(--title-color);
+}
+
+/* BOX MODEL CASCATA */
+
+#page-home{
+  height: 100vh; /* viewport, pega a altura e faz ocupar todos os blocos */
+  background: url('../assets/home-background.svg') no-repeat;
+  background-position: 35vw 200px; /*largura agora*/
+}
+
+#page-home .content{
+  width: 90%;
+  height: 100%;
+  max-width: 1100px; /*Ao chegar no max nao se ajusta mais*/
+  margin: 0 auto; /*top bottom left right*/ /*top right bottom left (3 valores)*/
+  display: flex;
+  flex-direction: column;
+}
+
+#page-home header{
+  margin-top: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /*Espaço entre*/
+}
+
+#page-home header a{
+  display: flex;
+  font-weight: 700;
+  color: var(--title-color);
+}
+
+#page-home header a span{
+  margin-right: 16px;
+  display: flex;
+  background-image: url('../assets/log-in.svg');
+  width: 20px;
+  height: 20px;
+}
+
+#page-home main{
+  max-width: 560px;
+  flex: 1;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#page-home main h1{
+  font-size: 56px;
+}
+
+#page-home main p{
+  font-size: 24px;
+  line-height: 35px;
+  margin-top: 24px;
+}
+
+#page-home main a{
+  background-color: var(--primary-color);
+  width: 100%;
+  max-width: 360px;
+  height: 72px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+  transition: 400ms;
+}
+
+#page-home main a:hover{
+  background-color: #2fb86e;
+}
+
+#page-home main a span{
+  width: 72px;
+  height: 72px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.08);/*RGB alpha*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*Criando pseudoelemento*/
+#page-home main a span::after{
+  content: "";
+  background-image: url('../assets/search.svg');
+
+  width: 20px;
+  height: 20px;
+}
+
+#page-home main a strong{
+  color: white;
+  flex: 1;
+  text-align: center;
+}
+
+/* Conjunto de regras
+ Quando a largura da tela for máxima de 900 px (0 ate 900) aplica-se regras especificas */
+@media (max-width: 900px){
+  #page-home{
+    background-position-x: 70vw;
+  }
+
+  #page-home .content{
+    align-items: center;
+    text-align: center;
+  }
+
+  #page-home header a{
+    position: absolute;
+    bottom: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  #page-home main{
+    align-items: center;
+  }
+}
