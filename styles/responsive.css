@@ -1,5 +1,14 @@
 /* Conjunto de regras
  Quando a largura da tela for máxima de 900 px (0 ate 900) aplica-se regras especificas */
+
+ @media (min-width: 2560px){
+  #page-home{
+    height: 80vh; /* viewport, pega a altura e faz ocupar todos os blocos */
+    background-position: 35vw bottom; /*largura agora*/
+    background-position-x: 45vw;
+  }
+}
+
  @media (max-width: 900px){
   #page-home{
     background-position-x: 70vw;
@@ -19,5 +28,21 @@
 
   #page-home main{
     align-items: center;
+  }
+}
+
+@media (max-width: 768px){
+  #page-home header{
+    margin-top: 30px;
+  }
+
+  #page-home main h1{
+    font-size: 35px;
+  }
+}
+
+@media (max-height: 760px){
+  #page-home{
+    background-position-y: 200px;
   }
 }
